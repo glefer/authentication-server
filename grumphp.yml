@@ -1,0 +1,15 @@
+grumphp:
+  git_hook_variables:
+    EXEC_GRUMPHP_COMMAND: ['docker-compose', 'exec', '-T', 'laravel.test']
+    ENV:
+      WWWGROUP: $(id -g)
+      WWWUSER: $(id -u)
+  tasks:
+    phpcsfixer:
+      config: .php-cs-fixer.php
+    composer:
+      no_check_publish: true
+    phpstan:
+      memory_limit: "512M"
+      configuration: phpstan.neon
+      use_grumphp_paths: false
