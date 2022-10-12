@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.admin-table {
+    min-width: 100%;
+
+    thead {
+        border-bottom-width: 1px;
+
+        th {
+            --tw-text-opacity: 1;
+            color: rgb(17 24 39 / var(--tw-text-opacity));
+            font-weight: 700;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            text-align: left;
+            padding: 1rem 1.5rem;
+        }
+    }
+
+    tbody tr {
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 300ms;
+        transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+        --tw-bg-opacity: 1;
+        background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+        border-bottom-width: 1px;
+
+        &:hover {
+            background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+        }
+
+        td {
+            --tw-text-opacity: 1;
+            color: rgb(17 24 39 / var(--tw-text-opacity));
+            font-weight: 300;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            padding: 1rem 1.5rem;
+            white-space: nowrap;
+        }
+    }
+}
