@@ -31,6 +31,16 @@ jobs:
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
       - name: Install Dependencies
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - name: Install Yarn
+        run: npm install -g yarn
+      - name: Install JS dependencies
+        run: yarn install
+      - name: Build assets
+        run: yarn run build
       - name: Laravel configuration
         run: |
           php artisan key:generate
