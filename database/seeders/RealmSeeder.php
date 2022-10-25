@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Client;
 use App\Models\Realm;
 use Illuminate\Database\Seeder;
 
@@ -14,6 +15,8 @@ class RealmSeeder extends Seeder
      */
     public function run()
     {
-        Realm::factory(1000)->create();
+        Realm::factory(1000)
+            ->has(Client::factory(3))
+            ->create();
     }
 }

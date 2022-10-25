@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\RealmController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,7 @@ require __DIR__.'/auth.php';
 
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
     Route::resource('realms', RealmController::class);
+    Route::scopeBindings()->resource('realms.clients', ClientController::class);
 
     Route::get('/dashboard', function () {
         return view('dashboard');
