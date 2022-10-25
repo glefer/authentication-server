@@ -2,6 +2,8 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{$realm->name}}
+            >
+            {{$client->name}}
         </h2>
     </x-slot>
 
@@ -13,14 +15,14 @@
 
                     <div class="container">
 
+                        <div class="container mb-2  pb-2">
+                            <span class="font-bold text-gray-700 ">{{ __('Client ID') }} : </span> <br>
+                            {{$client->clientId}}
+                        </div>
+
 
                         <div class="mt-6 text-right">
-                            <a href="{{route('admin.realms.clients.index',['realm'=>$realm->id])}}"
-                               class="mr-0.5 bg-teal-600 hover:bg-sky-700 px-5 py-2.5 text-sm leading-5 rounded-md font-semibold text-white ">
-                                {{ __('admin.clients.clients') }}
-                            </a>
-
-                            <a href="{{route('admin.realms.edit',['realm'=>$realm->id])}}"
+                            <a href="{{route('admin.realms.clients.edit',['realm'=>$realm->id, 'client'=>$client->id])}}"
                                class="mr-0.5 bg-sky-600 hover:bg-sky-700 px-5 py-2.5 text-sm leading-5 rounded-md font-semibold text-white ">
                                 {{ __('admin.global.edit') }}
                             </a>
