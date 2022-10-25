@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('admin.global.creation_title',['type'=> 'Realm' ])}}
+            {{ __('admin.global.creation_title',['type'=> 'Client' ])}}
         </h2>
     </x-slot>
 
@@ -11,10 +11,10 @@
                 <div class="p-6 bg-white border-b border-gray-200">
 
 
-                    <form method="POST" action="{{route('admin.realms.store')}}">
+                    <form method="POST" action="{{route('admin.realms.clients.store', ['realm'=> $realm])}}">
                         @csrf
-                        <x-label for="name" value="{{__('admin.realms.name')}}" />
-                        <x-input value="{{old('name')}}" name="name"  />
+                        <x-label for="name" value="{{__('admin.clients.name')}}"/>
+                        <x-input value="{{old('name')}}" name="name"/>
 
                         <div class="mt-6 text-right">
                             <button

@@ -8,7 +8,9 @@ return [
         'save' => 'Save',
         'confirmation' => [
             'updated' => ':resource updated',
+            'deleted' => ':resource deleted',
         ],
+        'creation_title' => ':type creation',
     ],
     'pagination' => [
         'next' => 'Next',
@@ -20,6 +22,11 @@ return [
     ],
     'realms' => [
         'realms' => 'Realms',
+        'name' => 'Name',
+        'created_at' => 'Created at',
+    ],
+    'clients' => [
+        'clients' => 'Clients',
         'name' => 'Name',
         'created_at' => 'Created at',
     ],
