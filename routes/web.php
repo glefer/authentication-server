@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\OpenId\OpenIdController;
 use App\Http\Controllers\RealmController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,3 +30,10 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
         return view('dashboard');
     })->name('dashboard');
 });
+
+// OPENID
+Route::get('realms/{realm}', [OpenIdController::class, 'issuer'])->name('openid.realm_issuer');
+Route::get('realms/{realm}/.well-known/openid-configuration', [OpenIdController::class, 'wellKnown'])->name('openid.well_known');
+Route::get('realms/{realm}/protocol/openid-connect/auth', fn () => '')->name('openid.auth');
+Route::get('realms/{realm}/protocol/openid-connect/token', fn () => '')->name('openid.token');
+Route::get('realms/{realm}/protocol/openid-connect/userinfo', fn () => '')->name('openid.userinfo');
